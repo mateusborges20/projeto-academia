@@ -1,14 +1,11 @@
 [build]
   publish = "."
-  command = "npm run build"
 
 [[context.production.plugins]]
 package = "@netlify/plugin-sitemap"
-
   [context.production.plugins.inputs]
   buildDir = "."
 
-# Regras de redirect para garantir que sitemap.xml seja servido corretamente
 [[redirects]]
 from = "/sitemap.xml"
 to = "/sitemap.xml"
