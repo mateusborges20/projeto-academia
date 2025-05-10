@@ -1,0 +1,5 @@
+[[context.production.plugins]]
+package = "@netlify/plugin-sitemap"
+
+  [context.production.plugins.inputs]
+  buildDir = "public"
