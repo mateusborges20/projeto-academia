@@ -1,16 +1,19 @@
 [build]
-  publish = "."
+  publish = "."  # Pasta onde seu site está (raiz do projeto)
 
 [[context.production.plugins]]
 package = "@netlify/plugin-sitemap"
   [context.production.plugins.inputs]
-  buildDir = "."
+  buildDir = "."  # Mesma pasta de publicação para gerar o sitemap
 
+# Regra para servir o sitemap.xml diretamente, sem redirecionar
 [[redirects]]
 from = "/sitemap.xml"
 to = "/sitemap.xml"
 status = 200
+force = true  # Garante que o arquivo seja servido diretamente
 
+# Regra global para SPA, redireciona tudo para index.html
 [[redirects]]
 from = "/*"
 to = "/index.html"
