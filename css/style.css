@@ -1,0 +1,889 @@
+@import "./plano.css";
+@import "./cliente.css";
+@import "./accordion.css";
+@import "./footer.css";
+@import "./estrutura.css";
+@import "./formulario.css";
+
+/* Reset estilos */
+body {
+  margin: 0px;
+  overflow-x: hidden;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0px;
+}
+
+/* Reset lista */
+ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.container-flex {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-bg {
+  background: #0d0d0d !important;
+}
+
+.flex-itens {
+  display: flex;
+  gap: 30px;
+}
+
+.flex-itens a {
+  text-decoration: none;
+  padding: 10px 12px;
+  border: 2px solid rgba(223, 26, 0, 0.2); /* Borda suave */
+  border-radius: 4px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  background: none;
+  transition: border-color 0.3s, color 0.2s, transform 0.2s;
+}
+
+.flex-itens a:hover {
+  color: #df1a00 !important;
+  border-color: #df1a00;
+  transform: scale(1.05);
+}
+
+.flex-itens a:active {
+  color: #fff !important;
+  border-color: #b30e00;
+  transform: scale(0.97);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Estilos para o menu hamburguer e menu lateral */
+.menu-hamburguer {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.linha {
+  width: 30px; /* Largura das linhas do menu */
+  height: 3px; /* Altura das linhas do menu */
+  background-color: #fff; /* Cor das linhas */
+  margin: 0.4rem 0.2rem; /* Espaçamento entre as linhas */
+}
+
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  left: -100%; /* Esconde o menu lateral fora da tela */
+  width: 70%; /* Ocupa até 70% da largura da tela */
+  max-width: 300px; /* Largura máxima para telas maiores */
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* Preto com transparência */
+  transition: left 0.3s ease; /* Transição suave ao abrir/fechar */
+  z-index: 1000;
+  padding: 0.5rem; /* Padding geral */
+}
+
+.menu-lateral.open {
+  left: 0; /* Faz o menu aparecer */
+}
+
+.menu-lateral ul {
+  padding-top: 0.5rem; /* Espaçamento superior */
+  display: flex;
+  flex-direction: column; /* Links empilhados verticalmente */
+  align-items: flex-start; /* Alinha os links à esquerda */
+  width: auto;
+  margin-top: 0.5rem;
+}
+
+/* Estilo dos itens do menu lateral */
+.menu-lateral li {
+  margin-bottom: 0.5rem; /* Espaçamento entre os itens */
+}
+
+.menu-lateral a {
+  display: block; /* Faz os links ocuparem toda a largura disponível */
+  color: #fff; /* Cor dos links */
+  text-decoration: none; /* Remove o sublinhado */
+  font-family: "Poppins", sans-serif; /* Fonte dos links */
+  font-weight: 500; /* Peso da fonte */
+  font-size: 0.9rem; /* Tamanho da fonte ajustado para responsividade */
+  padding: 0.75rem 0.5rem; /* Espaçamento interno dos links */
+  border-radius: 0.25rem; /* Bordas arredondadas */
+  transition: 0.3s ease background-color, 0.3s ease color; /* Transição suave para hover */
+}
+
+.menu-lateral a:hover {
+  color: #ccc; /* Cor do texto ao passar o mouse */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Fundo claro ao passar o mouse */
+}
+
+/* Botão de fechar no menu lateral */
+#closeMenu {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+/* Media query para telas menores que 800px (celulares e tablets) */
+@media (max-width: 800px) {
+  .flex-itens {
+    display: none;
+  }
+
+  .menu-hamburguer {
+    display: flex;
+  }
+}
+
+/* Media query para telas menores que 480px (celulares muito pequenos) */
+@media (max-width: 480px) {
+  .header-bg img {
+    height: auto;
+  } /* Ajusta a altura da imagem do logotipo em telas pequenas */
+}
+
+/* Reset estilos */
+body {
+  margin: 0px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0px;
+}
+
+/* Reset lista */
+ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.container-flex {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-bg {
+  background: #000;
+}
+
+.flex-itens {
+  display: flex;
+  gap: 30px;
+}
+
+.flex-itens a {
+  text-decoration: none;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, alpha);
+  border-radius: 4px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.flex-itens a:hover {
+  color: #ccc;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Imagem da introdução */
+.img-introducao img {
+  max-width: 100%;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Container principal */
+.container-principal {
+  position: relative;
+}
+
+/* Seção com imagem e chamada */
+.bg-introducao.scroll-suave {
+  position: relative;
+}
+
+/* ==== CHAMADAS SOBRE A IMAGEM ==== */
+.chamada-intro {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 30px 40px;
+  border-radius: 10px;
+  text-align: left;
+  z-index: 2;
+  max-width: 400px;
+  border: 2px solid #ff1e1e;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  font-family: "Poppins", sans-serif;
+  animation: slideInRight 1s ease-out forwards;
+}
+
+/* Chamada da direita */
+.chamada-direita {
+  right: 5%;
+  animation-name: slideInRight;
+  animation-delay: 0.8s; /* Novo delay */
+}
+
+/* Chamada da esquerda - fundo escuro, borda vermelha */
+.chamada-esquerda {
+  left: 5%;
+  text-align: left;
+  background: rgba(0, 0, 0, 0.85);
+  border: 2px solid #ff1e1e;
+  box-shadow: 0 6px 32px rgba(255, 30, 30, 0.1);
+  animation-name: slideInLeft;
+  animation-delay: 1.2s; /* Novo delay */
+}
+
+.chamada-esquerda h2 {
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #e0e0e0; /* Cinza claro */
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  border-left: 4px solid #fff;
+  padding-left: 12px;
+  line-height: 1.15;
+}
+
+.chamada-esquerda h2 .destaque-evolution {
+  color: #ff1e1e;
+  background: rgba(255, 30, 30, 0.07);
+  border-radius: 4px;
+  padding: 0 3px;
+  transition: background 0.3s;
+}
+
+.chamada-esquerda p {
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: #fff;
+  opacity: 0.92;
+}
+
+/* Animação entrada direita */
+@keyframes slideInRight {
+  from {
+    transform: translateY(-50%) translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-50%) translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Animação entrada esquerda */
+@keyframes slideInLeft {
+  from {
+    transform: translateY(-50%) translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-50%) translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Texto da chamada direita */
+.chamada-direita p {
+  font-size: 2.4rem;
+  line-height: 1.3;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Botão */
+.chamada-direita a {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: #ff1e1e;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 6px;
+  font-size: 1.6rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.chamada-direita a:hover {
+  background-color: #cc1a1a;
+}
+
+/* ==== RESPONSIVO ==== */
+@media (max-width: 768px) {
+  .chamada-intro {
+    position: static;
+    transform: none;
+    opacity: 1;
+    animation: none;
+    margin: 20px auto;
+    text-align: center;
+    max-width: 95%;
+    border: 2px solid #ff1e1e;
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .chamada-intro p {
+    font-size: 1.8rem;
+  }
+
+  .chamada-intro a {
+    font-size: 1.4rem;
+    padding: 10px 20px;
+  }
+
+  /* Esconde a chamada da esquerda no mobile */
+  .chamada-esquerda {
+    display: none !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .img-introducao {
+    position: relative;
+    height: 90vh;
+    min-height: 600px;
+    max-height: 900px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .img-introducao img {
+    width: 100vw;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+    filter: brightness(0.85) saturate(1.1); /* imagem menos escura */
+    background: #000;
+    transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+    will-change: transform;
+  }
+
+  .img-introducao::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.25) 0%,
+      /* menos opaco */ rgba(0, 0, 0, 0.1) 100% /* menos opaco */
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .chamada-intro {
+    z-index: 2;
+  }
+}
+
+/* Ajustes finos para telas grandes */
+@media (min-width: 1200px) {
+  .chamada-intro {
+    max-width: 480px;
+    padding: 40px 52px;
+  }
+  .chamada-esquerda h2 {
+    font-size: 2.5rem;
+  }
+  .chamada-esquerda p {
+    font-size: 1.25rem;
+  }
+}
+
+/* Estilos para o menu hamburguer e menu lateral */
+.menu-hamburguer {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.linha {
+  width: 30px; /* Largura das linhas do menu */
+  height: 3px; /* Altura das linhas do menu */
+  background-color: #fff; /* Cor das linhas */
+  margin: 0.1rem 0.1rem !important; /* Espaçamento entre as linhas */
+}
+
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  left: -100%; /* Esconde o menu lateral fora da tela */
+  width: 70%; /* Ocupa até 70% da largura da tela */
+  max-width: 300px; /* Largura máxima para telas maiores */
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* Preto com transparência */
+  transition: left 0.3s ease; /* Transição suave ao abrir/fechar */
+  z-index: 1000;
+  padding: 0.5rem; /* Padding geral */
+}
+
+.menu-lateral.open {
+  left: 0; /* Faz o menu aparecer */
+}
+
+.menu-lateral ul {
+  padding-top: 0.5rem; /* Espaçamento superior */
+  display: flex;
+  flex-direction: block;
+  flex-wrap: no-wrap;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  width: auto;
+  margin-top: 0.5rem;
+}
+
+/* Estilo dos itens do menu lateral */
+.menu-lateral li {
+  margin-bottom: 0.5rem; /* Espaçamento entre os itens */
+  width: 100%; /* Garante que o item ocupe toda a largura disponível */
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.2); /* Linha separadora abaixo de cada item */
+}
+
+.menu-lateral a {
+  display: block; /* Faz os links ocuparem toda a largura disponível */
+  color: #fff; /* Cor dos links */
+  text-decoration: none; /* Remove o sublinhado */
+  font-family: "Poppins", sans-serif; /* Fonte dos links */
+  font-weight: 500; /* Peso da fonte */
+  font-size: 0.9rem; /* Tamanho da fonte ajustado para responsividade */
+  padding: 0.75rem 0.5rem; /* Espaçamento interno dos links */
+  transition: 0.3s ease background-color, 0.3s ease color; /* Transição suave para hover */
+}
+
+.menu-lateral a:hover {
+  color: #ccc; /* Cor do texto ao passar o mouse */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Fundo claro ao passar o mouse */
+}
+
+/* Botão de fechar no menu lateral */
+#closeMenu {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+/* Media query para telas menores que 800px (celulares e tablets) */
+@media (max-width: 800px) {
+  .flex-itens {
+    display: none;
+  }
+
+  .menu-hamburguer {
+    display: flex;
+  }
+}
+
+/* Media query para telas menores que 480px (celulares muito pequenos) */
+@media (max-width: 480px) {
+}
+
+/* responsivo introdução */
+@media (max-width: 480px) {
+  .titulo-intro {
+    font-size: 2.5rem;
+  }
+
+  .descricao-intro a {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .titulo-intro {
+    font-size: 2.2rem;
+  }
+
+  .descricao-intro a {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 330px) {
+  .titulo-intro {
+    font-size: 1.8rem;
+  }
+
+  .descricao-intro a {
+    font-size: 0.8rem;
+  }
+
+  .marca {
+    width: 160px;
+    height: 150px;
+  }
+}
+
+/* Fundo da seção */
+.bg-historia {
+  position: relative;
+  background: #f9f9f9;
+  color: #333;
+  padding: 80px 20px;
+}
+
+/* Wrapper */
+.historia-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Grid principal */
+.grid-historia {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  align-items: center;
+}
+
+/* Imagem */
+.container-img {
+  position: relative;
+  overflow: hidden; /* Garante que o border-radius funcione */
+  border-radius: 4px; /* Aplica borda ao contêiner */
+}
+
+.image-frame {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+  max-height: 400px;
+  border-radius: 4px; /* Arredondamento aplicado à imagem */
+  display: block;
+  box-shadow: -10px -10px 20px rgba(255, 255, 255, 0.7),
+    10px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Título */
+.titulo-historia {
+  margin-bottom: 32px;
+  font-family: "Arial", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.2;
+}
+
+.titulo-historia span {
+  color: #df1a00;
+}
+
+.titulo-historia::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #df1a00;
+  margin-top: 10px;
+}
+
+/* Texto */
+.texto-historia {
+  font-family: "Arial", sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
+
+/* Assinatura */
+.assinatura-historia {
+  font-family: "Arial", serif;
+  font-size: 1.1rem;
+  margin-top: 20px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .bg-historia {
+    padding: 30px 20px 5px 20px; /* Reduz padding top e bottom no mobile */
+  }
+
+  .grid-historia {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .container-historia {
+    order: -1; /* Coloca o texto antes da imagem */
+  }
+
+  .titulo-historia {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+  }
+
+  .container-img {
+    margin-bottom: 20px;
+    margin: auto;
+  }
+}
+
+/* Estado inicial: invisível e fora do lugar */
+.titulo-historia {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* Quando a seção .bg-historia ganha a classe .ativo, anima o título */
+.bg-historia.ativo .titulo-historia {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Animação do fade + movimento */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animação da barrinha decorativa */
+@keyframes growBar {
+  0% {
+    transform: scaleX(0);
+  }
+  60% {
+    transform: scaleX(1.4);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+/* Barrinha decorativa animada quando a seção entra */
+.bg-historia.ativo .titulo-historia::after {
+  animation: growBar 1s ease-in-out forwards;
+  transform-origin: left;
+}
+
+.container-img {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px; /* Garante que o zoom respeite o arredondado */
+}
+
+.image-frame {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+  max-height: 400px;
+  border-radius: 4px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: -10px -10px 20px rgba(255, 255, 255, 0.7),
+    10px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Efeito no hover (desktop) */
+.container-img:hover .image-frame {
+  transform: scale(1.05);
+  box-shadow: -12px -12px 24px rgba(255, 255, 255, 0.8),
+    12px 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Efeito no toque (mobile): usa :active como fallback */
+@media (hover: none) {
+  .container-img:active .image-frame {
+    transform: scale(1.05);
+    box-shadow: -12px -12px 24px rgba(255, 255, 255, 0.8),
+      12px 12px 24px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.flex-diferencial {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  flex-wrap: wrap;
+}
+
+.container-itens p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.5rem;
+}
+
+.container-itens {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bg-diferencial .titulo-planop {
+  margin-bottom: 100px;
+}
+
+.container-itens p {
+  color: #f7f7f7;
+}
+
+.bg-diferencial {
+  background: #111;
+  padding-top: 60px;
+  padding-bottom: 100px;
+  text-align: center;
+}
+
+.bg-diferencial .titulo-planop {
+  margin-bottom: 100px;
+  color: #f7f7f7;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 3rem;
+}
+
+.flex-diferencial {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  flex-wrap: wrap;
+}
+
+.container-itens {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.container-itens p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #f7f7f7;
+}
+
+.itens-diferencial {
+  display: flex;
+  justify-content: center;
+}
+
+.itens-diferencial img {
+  filter: invert(0); /* Caso os ícones precisem ser invertidos */
+  transition: transform 0.3s ease-in-out;
+}
+
+.itens-diferencial img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsivo */
+@media (max-width: 450px) {
+  .bg-diferencial .titulo-planop {
+    font-size: 2.8rem;
+    margin-bottom: 60px;
+  }
+  .container-itens img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .container-itens p {
+    font-size: 1rem;
+  }
+
+  .bg-diferencial {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .flex-diferencial {
+    gap: 60px;
+  }
+}
+
+.scroll-suave {
+  opacity: 0;
+  transform: translate3d(-30px, 0, 0) scale(0.95); /* Adiciona escala inicial */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.scroll-suave.ativo {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1); /* Retorna à escala normal */
+}
+
+/* Adiciona delay para cada seção */
+section:nth-child(1).ativo {
+  transition-delay: 0.1s;
+}
+section:nth-child(2).ativo {
+  transition-delay: 0.2s;
+}
+section:nth-child(3).ativo {
+  transition-delay: 0.3s;
+}
+section:nth-child(4).ativo {
+  transition-delay: 0.4s;
+}

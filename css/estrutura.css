@@ -1,0 +1,286 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-family: "Poppins", sans-serif;
+  background: #0d0d0d;
+  color: white;
+  text-align: center;
+}
+
+/* Header */
+.header-bg {
+  background: #0d0d0d;
+  padding: 10px 0;
+}
+
+.container-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.flex-itens {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.flex-itens a {
+  color: white;
+  text-decoration: none;
+}
+
+.menu-hamburguer {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.linha {
+  width: 25px;
+  height: 3px;
+  background: white;
+}
+
+/* Seção do Carrossel */
+.bg-estrutura {
+  padding: 40px 0;
+}
+
+.flex-titulo-estrutura {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+/* Carrossel */
+.carousel-container {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  min-height: 200px;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-item {
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-item img {
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* Botões de navegação */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 18px;
+  z-index: 1000;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .carousel-arrow {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+  }
+
+  .prev {
+    left: 5px;
+  }
+
+  .next {
+    right: 5px;
+  }
+}
+
+/* App Fitness */
+.app-fitness-section {
+  background-color: #1a1a1a;
+  padding: 20px 0;
+}
+
+.img-app-container {
+  flex: 1;
+  text-align: center;
+}
+
+.img-app {
+  max-width: 250px;
+  height: auto;
+}
+
+.texto-app-container {
+  flex: 2;
+}
+
+.titulo-app {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.descricao-app {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.botao-assinatura {
+  padding: 8px 16px;
+  background-color: #df1a00;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.carousel-container {
+  height: 50vh;
+  min-height: 200px;
+}
+
+@media (max-width: 600px) {
+  .carousel-container {
+    height: auto;
+    min-height: 150px; /* Evita espaços grandes */
+  }
+}
+
+body .container-app .lista-planos p {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+}
+
+
+.container-app {
+  align-self: flex-start;
+}
+
+.flex-app {
+  display: flex;
+  gap: 20px;
+  justify-content: start;
+  align-items: center;
+
+}
+
+.texto-app-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.titulo-app {
+  align-self: flex-start;
+}
+
+.img-app-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* responsivo */
+@media (max-width: 430px) {
+  .flex-app {
+    flex-direction: column;
+  }
+
+  .titulo-app {
+    font-size: 1.2rem;
+    align-self: center;
+  }
+
+  .container-app {
+    align-self: center;
+  }
+}
+
+
+.app-text {
+  color: rgb(223, 26, 0);
+}
+
+
+.botao-app {
+  text-decoration: none;
+  background: #df1a00;
+  color: #ddd;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.botao-app:hover {
+  background: #c81400;
+}
+
+.botao-app:active {
+    background: #c81400; /* Cor de fundo vermelha */
+    color: white; /* Texto branco para contraste */
+    transform: scale(0.95); /* Efeito de redução ao clicar */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transition: all 0.1s ease; /* Transição suave */
+  
+}
