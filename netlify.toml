@@ -1,0 +1,20 @@
+[build]
+  publish = "academia-evolution"
+
+[[plugins]]
+package = "@netlify/plugin-sitemap"
+
+[plugins.inputs]
+buildDir = "academia-evolution"
+filePath = "sitemap.xml"
+changeFreq = "daily"
+priority = 0.5
+exclude = [
+  "./404.html",
+  "./success/index.html"
+]
+
+[[headers]]
+for = "/sitemap.xml"
+  [headers.values]
+  Content-Type = "application/xml"
