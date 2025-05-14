@@ -1,11 +1,11 @@
 [build]
-  publish = "academia-evolution"
+  publish = "."
 
 [[plugins]]
 package = "@netlify/plugin-sitemap"
 
 [plugins.inputs]
-buildDir = "academia-evolution"
+buildDir = "."
 filePath = "sitemap.xml"
 changeFreq = "daily"
 priority = 0.5
